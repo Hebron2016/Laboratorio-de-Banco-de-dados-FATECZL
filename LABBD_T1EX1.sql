@@ -61,19 +61,19 @@ CREATE TABLE Nao_Alunos_Inscritos(
 CREATE VIEW v_chamadaPalestra
 AS
 SELECT al.RA as num_documento, alu.Nome AS Nome_Pessoa, pa.Titulo AS Titulo_Palestra, pl.Nome AS Nome_Palestrante,
-	pa.Carga_Horaria AS Carga_Hor·ria, CONVERT(CHAR(10),pa.Data,103) AS Data
+	pa.Carga_Horaria AS Carga_Hor√°ria, CONVERT(CHAR(10),pa.Data,103) AS Data
 FROM Alunos_inscritos al, Palestra pa, Palestrante pl,Aluno alu
 WHERE al.Codigo_Palestra = pa.Codigo_Palestra
 	AND al.RA = alu.RA
 	AND pa.Codigo_Palestrante = pl.Codigo_Palestrante
 UNION
 SELECT nai.RG + nai.Orgao_EXP as num_documento, Na.Nome AS Nome_Pessoa, pa.Titulo AS Titulo_Palestra, pl.Nome AS Nome_Palestrante,
-pa.Carga_Horaria AS Carga_Hor·ria, CONVERT(CHAR(10),pa.Data,103) AS Data
+pa.Carga_Horaria AS Carga_Hor√°ria, CONVERT(CHAR(10),pa.Data,103) AS Data
 FROM Nao_Alunos Na, Nao_Alunos_Inscritos nai, Palestra pa, Palestrante pl
 WHERE Na.RG =nai.RG AND nai.Orgao_EXP = Na.Orgao_EXP
 	AND	nai.Codigo_Palestra = pa.Codigo_Palestra
 	AND pa.Codigo_Palestrante = pl.Codigo_Palestrante
-
+ORDER BY Nome
 INSERT INTO Curso VALUES
 (123, 'Analise e Desenvolvimento de Sistemas', 'ADS')
 

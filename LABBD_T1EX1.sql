@@ -73,7 +73,7 @@ FROM Nao_Alunos Na, Nao_Alunos_Inscritos nai, Palestra pa, Palestrante pl
 WHERE Na.RG =nai.RG AND nai.Orgao_EXP = Na.Orgao_EXP
 	AND	nai.Codigo_Palestra = pa.Codigo_Palestra
 	AND pa.Codigo_Palestrante = pl.Codigo_Palestrante
-ORDER BY Nome
+ORDER BY Nome_Pessoa
 INSERT INTO Curso VALUES
 (123, 'Analise e Desenvolvimento de Sistemas', 'ADS')
 
